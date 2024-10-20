@@ -1,0 +1,21 @@
+<div class="weather-container">
+  <h1>Погода в {{ weatherData?.name }}</h1>
+  <div class="weather-info">
+    <div class="temperature">
+      <h2>{{ weatherData?.main?.temp | K2CTemperatureConverter }}°C</h2>
+    </div>
+    <div class="weather-details">
+      <p>Влажность: {{ weatherData?.main?.humidity }}%</p>
+      <p>Ветер: {{ weatherData?.wind?.speed }} м/с</p>
+    </div>
+    <div class="weather-icon">
+
+      <img *ngIf="weatherData?.weather"
+           [src]="'https://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="Weather icon">
+      <p *ngIf="weatherData?.weather">
+        {{ weatherData.weather[0].description }}
+      </p>
+
+    </div>
+  </div>
+</div>
